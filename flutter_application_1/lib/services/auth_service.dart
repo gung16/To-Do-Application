@@ -1,4 +1,3 @@
-// Area authentication di aplikasi ini terpisah
 import 'package:flutter/material.dart';
 
 class User {
@@ -16,13 +15,13 @@ class AuthService {
 
   User? _currentUser;
   final Map<String, String> _users = {};
-  final Map<String, List<String>> _userTodos = {};
+  final Map<String, List<Map<String, dynamic>>> _userTodos = {};
 
   User? get currentUser => _currentUser;
 
   bool signUp(String name, String username, String password) {
     if (_users.containsKey(username)) {
-      return false; // If the username already exists: Dia akan return false
+      return false; // Username already exists
     }
     _users[username] = password;
     _userTodos[username] = [];
@@ -42,16 +41,28 @@ class AuthService {
     _currentUser = null;
   }
 
-  List<String> getTodos() {
+  List<Map<String, dynamic>> getTodos() {
     if (_currentUser != null) {
       return _userTodos[_currentUser!.username] ?? [];
     }
     return [];
   }
 
-  void addTodo(String todo) {
+  void addTodo(Map<String, dynamic> todo) {
     if (_currentUser != null) {
       _userTodos[_currentUser!.username]?.add(todo);
+    }
+  }
+
+  void deleteTodoItem(int index) {
+    if (_currentUser != null) {
+      _userTodos[_currentUser!.username]?.removeAt(index);
+    }
+  }
+
+  void clearAllTodos() {
+    if (_currentUser != null) {
+      _userTodos[_currentUser!.username]?.clear();
     }
   }
 }

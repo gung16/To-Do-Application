@@ -19,7 +19,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Profile Page'),
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.blueAccent,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -66,9 +66,10 @@ class _ProfilePageState extends State<ProfilePage> {
               ElevatedButton(
                 onPressed: () {
                   _authService.logout();
-                  Navigator.pushReplacement(
+                  Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(builder: (context) => LandingPage()),
+                    (route) => false,
                   );
                 },
                 child: Text('Logout'),
