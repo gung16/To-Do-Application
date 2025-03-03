@@ -81,7 +81,7 @@ class LandingPage extends StatelessWidget {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF7B68EE),
+                            backgroundColor: Colors.teal,
                             foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25),
