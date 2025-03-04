@@ -101,7 +101,7 @@ class _AddEditTodoPageState extends State<AddEditTodoPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_isEditing ? 'Edit Task' : 'Add Task'),
-        backgroundColor: Colors.green[400],
+        backgroundColor: Colors.green,
         elevation: 0,
       ),
       body: SingleChildScrollView(

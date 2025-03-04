@@ -76,7 +76,6 @@ class _TodoListPageState extends State<TodoListPage> {
         body: Column(
           children: <Widget>[
             // Green banner with image and greeting
-            // Green banner with image and greeting
             Container(
               padding: EdgeInsets.fromLTRB(20, 60, 20, 20),
               decoration: BoxDecoration(
@@ -118,9 +117,7 @@ class _TodoListPageState extends State<TodoListPage> {
                       child: CircleAvatar(
                         backgroundColor: Colors.grey[300], // Default background
                         radius: 22,
-                        backgroundImage: _authService.profileNow.isNotEmpty
-                            ? AssetImage(_authService.profileNow)
-                            : null, // Prevents loading errors
+                        backgroundImage: AssetImage(_authService.profileNow),
                         child: _authService.profileNow.isEmpty
                             ? Icon(Icons.person, color: Colors.white) // Fallback avatar icon
                             : null,
@@ -132,7 +129,6 @@ class _TodoListPageState extends State<TodoListPage> {
                 ],
               ),
             ),
-
 
             // Statistics Cards
             Container(
